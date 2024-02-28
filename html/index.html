@@ -6,6 +6,7 @@
     <title>자기소개</title>
 </head>
 <body>
+    <script src="function.js"></script>
     <div>
         <h1> 자기소개 </h1>
         <ul class="paragraph">
@@ -66,10 +67,20 @@
     </div>
     <div class="paragraph">
         <h1>방명록</h1>
-        <p>이름 : <input type="text" name="name" size=50> </p>
+        <p>이름 : <input type="text" id="name" size=50> </p>
         <p>본인 취향 영화</p>
-        <p><input type="checkbox"> 빽 투터 퓨처 <input type="checkbox"> 노트북</p>
-        <button> 등록 </button> <button> 취소 </button>
+        <p><input type="checkbox" name="movie"> 빽 투터 퓨처 <input type="checkbox" name="movie"> 노트북</p>
+        <button type = "button" onclick="enroll()"> 등록 </button >
+        <button type = "reset"> 취소 </button>
     </div>
+
+    <script>
+        function enroll() {
+            const name = document.getElementById("name").value;
+            const query = 'input[name="movie"]:checked';
+            const selectedElements = document.querySelectorAll(query);
+            alert(name + "님, 저와 " + selectedElements.length + "개의 취향이 같으시네요!");
+        }
+    </script>
 </body>
 </html>
